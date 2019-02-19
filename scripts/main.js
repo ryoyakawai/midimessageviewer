@@ -4,6 +4,7 @@ import { BLEMIDIUtils } from "./blemidiutils.js";
 import { MIDIMessageUtils } from "./midimessageutils.js";
 import { clearToDefault, dispParsedMIDI, dispParsedMIDIExp, addToHistory } from "./screenhandler.js";
 
+const dispClearDuration = 3000; // (ms)
 clearToDefault();
 let dispState = "remove"; // [leave/remove]
 let timerId = 0;
@@ -17,13 +18,12 @@ bleMIDIUtls.setnMidiEventHandleCallback( event => {
   dispParsedMIDI(event);
   dispParsedMIDIExp(event);
   window.clearTimeout(timerId);
-  timerId = window.setTimeout(() => {
-    timerId = timerId;
-    if(dispState == "remove") {
+  if(dispState == "remove") {
+    timerId = window.setTimeout(() => {
       clearToDefault();
       document.querySelector("#disp-input-port").innerText="";
-    }
-  }, 3000);
+    }, dispClearDuration);
+  }
 });
 bleMIDIUtls.setStartBleCallabck( event => {
   document.getElementById("ble-icon").innerHTML = "bluetooth_connected";
@@ -76,13 +76,12 @@ window.addEventListener('midiin-event:input-port', event => {
     dispParsedMIDI(event);
     dispParsedMIDIExp(event);
     window.clearTimeout(timerId);
-    timerId = window.setTimeout(() => {
-      timerId = timerId;
-      if(dispState == "remove") {
+    if(dispState == "remove") {
+      timerId = window.setTimeout(() => {
         clearToDefault();
         document.querySelector("#disp-input-port").innerText = "";
-      }
-    }, 3000);
+      }, dispClearDuration);
+    }
   }
 });
 
