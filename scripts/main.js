@@ -92,7 +92,8 @@ document.querySelector("#disp-state").addEventListener("mousedown", event => {
   if(dispState == "leave") {
     dispState = "remove";
     event.target.innerHTML = "pause_circle_outline";
-    outVal=0x00;
+    outVal = 0x00;
+    clearToDefault();
   } else {
     dispState = "leave";
     event.target.innerHTML = "play_circle_outline";
