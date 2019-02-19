@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>MIDI Message Viewer | Web Bluetooth and Web MIDI</title>
+    <link href="./images/favion_off.png" rel="icon" type="image/png" />
+    <meta name="theme-color" content="#424242">
+    <link rel="manifest" href="./manifest.json">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <link rel="stylesheet" href="./md/material.green-light_green.min.css">
+    <link rel="stylesheet" href="./md/icon_family_material_icons.css">
+    <script src="./md/material.min.js"></script>
+    <link href="./md/family_roboto_mono.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MIDI Message Viewer | Web Bluetooth and Web MIDI" />
+    <meta name="twitter:description" content="Web App to see MIDI message by BLE-MIDI or USB-MIDI">
+
+    <!-- Open Graph -->
+    <meta property="og:locale" content="ja_JP">
+    <meta property="og:type" content="summary">
+    <meta property="og:title" content="MIDI Message Viewer | Web Bluetooth and Web MIDI">
+    <meta property="og:description" content="Web App to see MIDI message by BLE-MIDI or USB-MIDI">
+    <meta property="og:url" content="https://ryoyakawai.com/apps/midimsgv/index.html">
+    <meta property="og:site_name" content="MIDI Message Viewer">
+  </head>
+  <body>
+    <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
+    <link rel="import" href="bower_components/x-webmidi/x-webmidirequestaccess.html">
+
+    <x-webmidirequestaccess id="x-webmidi" sysex input output></x-webmidirequestaccess>
+
+    <div class="content-parent">
+      <div class="content">
+        <div class="title">MIDI Message Viewer</div>
+
+        <div class="select-area-parent">
+          <div class="system-button-area">
+            <div><span>INPUT: <x-webmidiinput id="input-port" autoreselect></x-webmidiinput> <span id="midiinput-event-01"></span></span></div>
+            <div><span>OUTPUT: <x-webmidioutput id="output-port" autoreselect></x-webmidioutput> <span id="midioutput-event-01"></span></span></div>
+          </div>
+          <div class="separator"><div class="v-line">.</div></div>
+          <div class="ble-button-area">
+            <span><button id="start-ble" class="ble_button"><i id="ble-icon" class="material-icons">bluetooth</i></button></span>
+          </div>
+        </div>
+        
+        <div class="disp-msg-exp">
+          <div class="button-area">
+            <div class="state-button">
+              <button id="disp-state" class="mdl-button mdl-js-button mdl-button--icon">
+                <i id="disp-state-icon" class="material-icons">pause_circle_outline</i>
+              </button>
+            </div>
+            <div class="clear-button">
+              <button id="clear-button" class="mdl-button mdl-js-button mdl-button--icon">
+                <i id="clear-icon" class="material-icons">clear_all</i>
+              </button>
+            </div>
+          </div>
+
+          <div id="exp-msg" class="exp-msg"></div>
+          <div id="exp-name" class="exp-name"></div>
+        </div>
+
+        <div class="message-area">
+          <div id="disp-input-port" class="disp-input-port"></div>
+          <div id="message-history" class="message-history"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">(c) 2019 Ryoya Kawai</div>
+    
+    <script type="module" src="./scripts/main.js"></script>
+
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116678332-1"></script>
+    <script>
+     window.dataLayer = window.dataLayer || [];
+     function gtag(){dataLayer.push(arguments);}
+     gtag('js', new Date());
+
+     gtag('config', 'UA-116678332-1');
+    </script>
+
+  </body>
+</html>

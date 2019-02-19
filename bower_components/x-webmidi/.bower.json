@@ -1,0 +1,30 @@
+{
+  "name": "x-webmidi",
+  "version": "0.12.0",
+  "authors": [
+    "Ryoya Kawai"
+  ],
+  "description": "Web MIDI API Wrapper with Web Components(polymer)",
+  "license": "Apache2",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "polymer": "@polymer/polymer#2.6.1"
+  },
+  "homepage": "https://github.com/ryoyakawai/x-webmidi",
+  "_release": "0.12.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "0.12.0",
+    "commit": "6a0d0542dbf889d76ffe47356fe7ec5a2e84e305"
+  },
+  "_source": "https://github.com/ryoyakawai/x-webmidi.git",
+  "_target": "0.12.0",
+  "_originalSource": "x-webmidi",
+  "_direct": true
+}

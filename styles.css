@@ -1,0 +1,180 @@
+body {
+  font-family: arial;
+}
+.title {
+  font-size: 30px;
+  font-weight:bold;
+  text-align:center;
+  width:100%;
+  padding: 35px 0;
+}
+#_inputblock {
+  width:100%;
+  padding-top:10px;
+  margin:10px auto;
+  text-align:center;
+}
+.content-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+}
+.content-parent > .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;  
+  width: 440px;
+}
+button.ble_button {
+  background-color: #adadad;
+  border: none;
+  color: white;
+  padding: 15px 17px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 30px;
+  transition: 0.3s;
+  user-select: none;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  cursor: pointer;;
+}
+button.ble_button:hover{
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+button.ble_button:focus {
+  outline:0;
+}
+.ble-button-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin:15px 0;
+}
+.system-button-area {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+.ble-connected {
+  background-color: #4285f4 !important;
+}
+.select-area-parent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.select-area-parent > .separator {
+  width: 50px;
+}
+.separator > .v-line {
+  font-size: 0px;
+  height: 50px;
+  width: 1px;
+  margin-left: 20px;
+  color: #ffffff;
+  background-color: #ffffff;
+  border-left: 1px solid #adadad;
+}
+.disp-msg-exp {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top:20px;
+  width:400px;
+  height:190px;
+  background-color:#DDF0FF;
+  color:#2196F3;
+  border-radius:5px;
+}
+.disp-msg-exp > .button-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  width: 100%;
+  height: 40px;
+}
+.disp-msg-exp > .exp-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 120px;
+  font-weight:bold;
+  font-size:94px;
+  font-family: 'Roboto Mono', monospace;
+}
+.disp-msg-exp > .exp-name {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  font-size: 20px;
+}
+.button-area > .state-button,
+.button-area > .clear-button {
+  display: flex;
+  width: 50%;
+}
+.button-area > .state-button {
+  padding-left: 3px;
+  justify-content: flex-start;
+}
+.button-area > .clear-button {
+  padding-right: 4px;
+  justify-content: flex-end;
+}
+.message-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  height: 250px;
+  margin-top: 8px;
+}
+.message-area > .disp-input-port,
+.message-area > .message-history {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  height: 240px;
+  padding: 5px 10px;
+  border-radius: 3px;
+  background-color:#424242;
+  color:#E0E0E0;
+  font-size:16px;
+  font-family: 'Roboto Mono', monospace;
+  overflow: auto;
+}
+.message-area > .disp-input-port {
+  width: 280px;
+}
+.message-area > .message-history {
+  width: 105px;
+  margin-left: 5px;
+}
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  background-color: #cfcfcf;
+  width: 100%;
+  height: 40px;
+  margin-top: 20px;
+  position:fixed;
+  bottom: 0;
+}
+.blue500{color:#4285f4}
+.red700{color:#DB4437}
+.red200{color:#e57368}
+.yellow700{color:#f4b400}
+.yellow500{color:#fbcb43}
+.green500{color:#33b679}
+.spacing {margin-left:18px}
+.strong{font-weight:bold}
+
