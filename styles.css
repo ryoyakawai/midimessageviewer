@@ -1,5 +1,49 @@
 body {
   font-family: arial;
+  min-width: 440px;
+  height: 680px;
+  background-color: #ffffff;
+}
+/* larger than */
+@media only screen and (max-width: 440px) {
+  .content-parent {
+    margin: 0px;
+    justify-content: flex-start;
+  }
+  .footer {
+    position:fixed;
+    bottom: 0;
+  }
+}
+/* smaller than */
+@media only screen and (min-width: 440px) {
+  body {
+    background-color: #e2e1e0;
+  }
+  .content-parent {
+    justify-content: center;
+  }
+  .content-parent > .material-shadow {
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  }
+}
+.content-parent {
+  display: flex;
+  flex-direction: column;
+  /*justify-content: center;*/
+  align-items: center;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+}
+.content-parent > .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 440px;
+  background-color: #ffffff;
+  border-radius: 5px;
 }
 .title {
   font-size: 30px;
@@ -7,24 +51,6 @@ body {
   text-align:center;
   width:100%;
   padding: 35px 0;
-}
-#_inputblock {
-  width:100%;
-  padding-top:10px;
-  margin:10px auto;
-  text-align:center;
-}
-.content-parent {
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-}
-.content-parent > .content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;  
-  width: 440px;
 }
 button.ble_button {
   background-color: #adadad;
@@ -94,7 +120,7 @@ button.ble_button:focus {
 .disp-msg-exp > .button-area {
   display: flex;
   justify-content: center;
-  align-items: center;  
+  align-items: center;
   width: 100%;
   height: 40px;
 }
@@ -133,7 +159,7 @@ button.ble_button:focus {
   align-items: center;
   width: 400px;
   height: 250px;
-  margin-top: 8px;
+  margin: 20px 0px;;
 }
 .message-area > .disp-input-port,
 .message-area > .message-history {
@@ -166,8 +192,8 @@ button.ble_button:focus {
   width: 100%;
   height: 40px;
   margin-top: 20px;
-  position:fixed;
-  bottom: 0;
+  /*position:fixed;*/
+  /*bottom: 0;*/
 }
 .blue500{color:#4285f4}
 .red700{color:#DB4437}

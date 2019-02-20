@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8">
     <title>MIDI Message Viewer | Web Bluetooth and Web MIDI</title>
+    <meta name="viewport" content="width=device-width" >
     <link href="./images/favion_off.png" rel="icon" type="image/png" />
     <meta name="theme-color" content="#424242">
     <link rel="manifest" href="./manifest.json">
@@ -33,7 +34,7 @@
     <x-webmidirequestaccess id="x-webmidi" sysex input output></x-webmidirequestaccess>
 
     <div class="content-parent">
-      <div class="content">
+      <div class="content material-shadow">
         <div class="title">MIDI Message Viewer</div>
 
         <div class="select-area-parent">
@@ -46,7 +47,7 @@
             <span><button id="start-ble" class="ble_button"><i id="ble-icon" class="material-icons">bluetooth</i></button></span>
           </div>
         </div>
-        
+
         <div class="disp-msg-exp">
           <div class="button-area">
             <div class="state-button">
@@ -69,11 +70,13 @@
           <div id="disp-input-port" class="disp-input-port"></div>
           <div id="message-history" class="message-history"></div>
         </div>
+
+        <div class="footer">MIDI Message Viewer (c) 2019 Ryoya Kawai</div>
+
       </div>
     </div>
 
-    <div class="footer">(c) 2019 Ryoya Kawai</div>
-    
+
     <script type="module" src="./scripts/main.js"></script>
 
     <!-- Global site tag (gtag.js) - Google Analytics -->
