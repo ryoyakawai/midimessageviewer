@@ -85,6 +85,8 @@ button.ble_button:focus {
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  width: 280px;
+  height: 60px;
 }
 .ble-connected {
   background-color: #4285f4 !important;
