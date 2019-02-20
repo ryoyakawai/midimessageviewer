@@ -1,24 +1,61 @@
-<!-- このコードの説明は  を御覧ください。 -->
+<!-- このコードの説明は https://qiita.com/ryoyakawai/items/200b3b05d8bd0096f68d を御覧ください。 -->
 <html>
   <head>
+    <title>Bluetooth MIDI Over Web Bluetooth | Sample Code</title>
+    <style>
+     .start-ble {
+       background-color: #bdbdbd;
+       border: none;
+       border-radius: 3px;
+       color: #ffffff;
+       padding: 15px 32px;
+       text-align: center;
+       text-decoration: none;
+       display: inline-block;
+       font-size: 16px;
+       cursor: pointer;
+       outline:0;
+     }
+     .connected {
+       background-color: #4285f4 !important;
+     }
+     .message {
+       width: 400px;
+       padding: 20px;
+     }
+    </style>
   </head>
   <body>
-    <button id="start-ble">Connect BLE MIDI Device</button>
+    <button id="start-ble" class="start-ble">Connect BLE MIDI Device</button>
+    <div id="message" class="message"></div>
     <script type="module">
      import { BLEMIDIUtils } from "./scripts/blemidiutils.js";
      import { MIDIMessageUtils } from "./scripts/midimessageutils.js";
 
+     let startButton = document.querySelector("#start-ble");
+     let msgArea = document.querySelector("#message");
+
      let bleMIDIUtls = new BLEMIDIUtils();
      let midiMsgUtls = new MIDIMessageUtils();
+     
      bleMIDIUtls.setMIDIParser(midiMsgUtls.parseMIDIMessage.bind(midiMsgUtls));
      let state = bleMIDIUtls.getDeviceConnected();
      bleMIDIUtls.setnMidiEventHandleCallback( event => {
-       console.log('[Recieved MIDI Message]' + event.detail);
+       let out = [];
+       for(let key in event.detail.property) {
+         out.push(key + " :: " + event.detail.property[key]);
+       }
+       msgArea.innerHTML = out.join("<br />")
      });
      bleMIDIUtls.setConnectedBleCallback( event => {
+       startButton.innerHTML = "Disconnect BLE MIDI Device";
+       startButton.classList.add('connected');
        console.log('[Device Connected]');
      });
      bleMIDIUtls.setDisconnectedBleCallback( event => {
+       startButton.innerHTML = "Connect BLE MIDI Device";
+       startButton.classList.remove('connected');
+       msgArea.innerHTML = "";
        console.log('[Device Disconnected]');
      });
      document.querySelector("#start-ble").addEventListener('mousedown', event => {
