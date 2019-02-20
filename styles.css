@@ -4,7 +4,7 @@ body {
   height: 680px;
   background-color: #ffffff;
 }
-/* larger than */
+/* smaller than */
 @media only screen and (max-width: 440px) {
   .content-parent {
     margin: 0px;
@@ -13,9 +13,10 @@ body {
   .footer {
     position:fixed;
     bottom: 0;
+    left: 0;
   }
 }
-/* smaller than */
+/* larger than */
 @media only screen and (min-width: 440px) {
   body {
     background-color: #e2e1e0;
