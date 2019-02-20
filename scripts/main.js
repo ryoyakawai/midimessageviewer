@@ -25,12 +25,12 @@ bleMIDIUtls.setnMidiEventHandleCallback( event => {
     }, dispClearDuration);
   }
 });
-bleMIDIUtls.setStartBleCallabck( event => {
+bleMIDIUtls.setConnectedBleCallback( event => {
   document.getElementById("ble-icon").innerHTML = "bluetooth_connected";
   document.getElementById("start-ble").classList.add('ble-connected');
   updateFavicon();
 });
-bleMIDIUtls.setEndBleCallabck( event => {
+bleMIDIUtls.setDisconnectedBleCallback( event => {
   document.getElementById("ble-icon").innerHTML = "bluetooth";
   document.getElementById("start-ble").classList.remove('ble-connected');
   updateFavicon();

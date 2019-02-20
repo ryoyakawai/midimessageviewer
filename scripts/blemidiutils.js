@@ -39,16 +39,16 @@ export class BLEMIDIUtils {
       let server = await this.connectedDevice.gatt.connect();
       let service = await server.getPrimaryService(this.SERVICE_UUID);
       await this.startBleMIDIService(service, this.MIDI_CHARA_UUID);
-      this.startBleCallabck();
+      this.connectedBleCallback();
     } catch(err) {
       console.log("[ERROR] " + err);
     }
   }
-  startBleCallabck() {
-    console.log("[Called] start_ble_callabck");
+  connectedBleCallback() {
+    console.log("[Called] connected_ble_callback");
   }
-  setStartBleCallabck(callback) {
-    this.startBleCallabck = callback;
+  setConnectedBleCallback(callback) {
+    this.startBleCallback = callback;
   }
   endBle() {
     if (this.connectedDevice === null
@@ -58,14 +58,14 @@ export class BLEMIDIUtils {
       this.connectedDevice.gatt.disconnect();
       console.log('[Disconnected]');
       this.device_connected = false;
-      this.endBleCallabck();
+      this.disconnectedBleCallback();
     }
   }
-  endBleCallabck() {
-    console.log("[Called] start_ble_callabck");
+  disconnectedBleCallback() {
+    console.log("[Called] disconnected_ble_callback");
   }
-  setEndBleCallabck(callback) {
-    this.endBleCallabck = callback;
+  setDisconnectedBleCallback(callback) {
+    this.disconnectedBleCallback = callback;
   }
   async startBleMIDIService(service, charUUID) {
     let characteristic = await service.getCharacteristic(charUUID);
