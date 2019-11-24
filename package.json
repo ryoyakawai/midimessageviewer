@@ -1,0 +1,27 @@
+{
+  "name": "midimessageviewer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "wbn": "gen-bundle -dir src -baseURL https://ryoyakawai.com/apps/midimsgv/ -primaryURL https://ryoyakawai.com/apps/midimsgv/ -o midimsgv.wbn",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ryoyakawai/midimessageviewer.git"
+  },
+  "author": "Ryoya KAWAI <ryoya.kawai@gmail.com> (https://ryoyakawai.com/)",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/ryoyakawai/midimessageviewer/issues"
+  },
+  "homepage": "https://github.com/ryoyakawai/midimessageviewer#readme",
+  "dependencies": {
+    "x-webmidi": "^0.9.0"
+  },
+  "devDependencies": {
+    "workbox-sw": "^4.3.1",
+    "workbox-webpack-plugin": "^4.3.1"
+  }
+}

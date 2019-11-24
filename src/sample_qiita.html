@@ -1,0 +1,37 @@
+<!-- このコードの説明は  を御覧ください。 -->
+<html>
+  <head>
+    <link rel="stylesheet" href="./node_modules/x-webmidi/xwebmidi.css">
+  </head>
+  <body>
+    <button id="start-ble">Connect BLE MIDI Device</button>
+    <script type="module">
+     import { xWebMIDI } from "../node_modules/x-webmidi/xwebmidi.js";
+     import { BLEMIDIUtils } from "./scripts/blemidiutils.js";
+     import { MIDIMessageUtils } from "./scripts/midimessageutils.js";
+
+     const xwm = new xWebMIDI()
+     const bleMIDIUtls = new BLEMIDIUtils();
+     const midiMsgUtls = new MIDIMessageUtils();
+     bleMIDIUtls.setMIDIParser(midiMsgUtls.parseMIDIMessage.bind(midiMsgUtls));
+     let state = bleMIDIUtls.getDeviceConnected();
+     bleMIDIUtls.setnMidiEventHandleCallback( event => {
+       console.log('[Recieved MIDI Message]' + JSON.stringify(event.detail));
+     });
+     bleMIDIUtls.setConnectedBleCallback( event => {
+       console.log('[Device Connected]');
+     });
+     bleMIDIUtls.setDisconnectedBleCallback( event => {
+       console.log('[Device Disconnected]');
+     });
+     document.querySelector("#start-ble").addEventListener('mousedown', event => {
+       if(!bleMIDIUtls.getDeviceConnected()) {
+         bleMIDIUtls.startBle.bind(bleMIDIUtls)(event);
+       } else {
+         bleMIDIUtls.endBle.bind(bleMIDIUtls)(event);
+       }
+     }, false);
+    </script>
+
+  </body>
+</html>
