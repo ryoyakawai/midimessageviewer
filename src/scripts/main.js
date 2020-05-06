@@ -11,6 +11,36 @@ let dispState = "remove"; // [leave/remove]
 let timerId = 0;
 
 (async () => {
+  // justify width
+  let loadingControl = function() { }
+  loadingControl.prototype = {
+    addviewport: async () => {
+      return new Promise( (resolve) => {
+        const app_fixed_screen_width = 440
+        let actual_screen_width = window.outerWidth
+        let sig_digit = Math.pow(10, 3)
+        let just_scale = Math.ceil(sig_digit * (actual_screen_width / app_fixed_screen_width)) / sig_digit
+        let viewport = document.createElement('meta')
+        viewport.setAttribute('name', 'viewport')
+        viewport.setAttribute('content', `width=device-width, initial-scale=${just_scale}, maximum-scale=${just_scale}`)
+        document.getElementsByTagName('head')[0].appendChild(viewport)
+        resolve()
+      })
+    },
+    hide: () => {
+      let div_loading = document.querySelector('#loading')
+      setTimeout( () => {
+        div_loading.style.setProperty('opacity', '0')
+      }, 500)
+      setTimeout( () => {
+        document.body.removeChild(div_loading)
+      }, 1500)
+    }
+  }
+  let lc = new loadingControl()
+  await lc.addviewport()
+  // justify width
+
   // for Web Bluetooth
   const bleMIDIUtls = new BLEMIDIUtils();
   const midiMsgUtls = new MIDIMessageUtils();
@@ -118,6 +148,9 @@ let timerId = 0;
     }
   });
 
+  // vvv removing loading overlay vvv
+  lc.hide()
+  // ^^^ removing loading overlay ^^^
 
 })()
 

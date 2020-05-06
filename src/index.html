@@ -28,6 +28,14 @@
     <meta property="og:site_name" content="MIDI Message Viewer">
   </head>
   <body>
+    <div id="loading" class="loading">
+      <div>
+        <div class="lds-ripple"><div></div><div></div></div>
+      </div>
+      <br><br>
+      <div>Loading MIDI Message Viewer...</div>
+    </div>
+
     <script type="module" href="./node_modules/x-webmidi/xwebmidi.js"></script>
 
     <x-webmidirequestaccess id="x-webmidi" sysex input output></x-webmidirequestaccess>
