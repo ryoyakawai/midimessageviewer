@@ -5,7 +5,7 @@
     <title>MIDI Message Viewer | Web Bluetooth and Web MIDI</title>
     <link href="./images/favion_off.png" rel="icon" type="image/png" />
     <meta name="theme-color" content="#424242">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+    <!--meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"-->
     <link rel="manifest" href="./manifest.json">
     <link rel="stylesheet" href="./md/material.green-light_green.min.css">
     <link rel="stylesheet" href="./md/icon_family_material_icons.css">
@@ -27,6 +27,14 @@
     <meta property="og:site_name" content="MIDI Message Viewer">
   </head>
   <body>
+    <div id="loading" class="loading">
+      <div>
+        <div class="lds-ripple"><div></div><div></div></div>
+      </div>
+      <br><br>
+      <div>Loading MIDI Message Viewer...</div>
+    </div>
+
     <script src="bower_components/webcomponentsjs/webcomponents-loader.js"></script>
     <link rel="import" href="bower_components/x-webmidi/x-webmidirequestaccess.html">
 
