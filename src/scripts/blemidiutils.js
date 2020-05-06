@@ -48,7 +48,8 @@ export class BLEMIDIUtils {
     console.log("[Called] connected_ble_callback");
   }
   setConnectedBleCallback(callback) {
-    this.startBleCallback = callback;
+    //this.startBleCallback = callback;
+    this.connectedBleCallback = callback
   }
   endBle() {
     if (this.connectedDevice === null
