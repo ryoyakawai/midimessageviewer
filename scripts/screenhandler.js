@@ -20,7 +20,11 @@ export const dispParsedMIDI = event => {
     if(key == "raw") {
       let tmp=[];
       for(let i=0; i<event.detail.property["raw"].length; i++) {
-        tmp.push(event.detail.property["raw"][i].toString(16));
+        let _byte = '--'
+        if(typeof event.detail.property["raw"][i] != 'undefined'){
+          _byte = event.detail.property["raw"][i].toString(16)
+        }
+        tmp.push(_byte);
       }
       event.detail.property["raw"] = tmp.join(" ");
     }

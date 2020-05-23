@@ -161,8 +161,8 @@ export class MIDIMessageUtils {
           break;
         case "b":
           event.subType = "controller";
-		        event.ctrlNo  =  msg[1];
-		        event.value  =  msg[2];
+          event.ctrlNo  =  msg[1];
+          event.value  =  msg[2];
           switch(event.ctrlNo) {
           case 0x00:
           case "0x00":
@@ -280,11 +280,11 @@ export class MIDIMessageUtils {
             break;
           case 0x5b:
           case "0x5b":
-            event.ctrlName = "effectSendLevel1"; // SendLevel: Reberb 
+            event.ctrlName = "effectSendLevel1"; // SendLevel: Reberb
             break;
           case 0x5d:
           case "0x5d":
-            event.ctrlName = "effectSendLevel3"; // SendLevel: Chrus 
+            event.ctrlName = "effectSendLevel3"; // SendLevel: Chrus
             break;
           case 0x5e:
           case "0x5e":
@@ -338,7 +338,7 @@ export class MIDIMessageUtils {
           case "0x7e":
             event.ctrlName = "Mono";
             break;
-          case 0x7f: 
+          case 0x7f:
           case "0x7f":
             event.ctrlName = "Poly";
             break;
